@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Admin</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 8px 0; }
+    a { text-decoration: none; color: blue; }
+    button { margin-top: 20px; padding: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Arquivos da pasta /src/</h2>
+  <ul id="lista"></ul>
+
+  <button onclick="logout()">Sair</button>
+
+  <script>
+    // proteção simples
+    if (localStorage.getItem("auth") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    async function carregarArquivos() {
+      try {
+        const resposta = await fetch("lista.json");
+        const arquivos = await resposta.json();
+
+        const lista = document.getElementById("lista");
+
+        arquivos.forEach(nome => {
+          const li = document.createElement("li");
+
+          const link = document.createElement("a");
+          link.href = "src/" + nome;
+          link.textContent = nome;
+          link.target = "_blank";
+
+          li.appendChild(link);
+          lista.appendChild(li);
+        });
+
+      } catch (erro) {
+        document.getElementById("lista").innerHTML =
+          "<li>Erro ao carregar arquivos</li>";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("auth");
+      window.location.href = "index.html";
+    }
+
+    carregarArquivos();
+  </script>
+
+</body>
+</html>
