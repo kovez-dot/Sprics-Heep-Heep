@@ -1,0 +1,22 @@
+{
+  "id": 9104,
+  "success": true,
+  "lastUpdated": "2025-09-28T01:22:24",
+  "worldTime": "0001-01-01T00:00:00",
+  "playersOnline": 1,
+  "maxPlayers": 500,
+  "isOpenMp": false,
+  "lagComp": true,
+  "name": "Capital City RP",
+  "gameMode": "Roleplay",
+  "ipAddr": "181.215.254.199:7777",
+  "mapName": "Grand Theft Auto",
+  "website": "https://systemnetworkgroup.shop/extremo/cadastro.php",
+  "version": "0.3.7",
+  "language": "Portugues - Brasil",
+  "sampCac": "Not required",
+  "requiresPassword": false,
+  "shuffledOrder": 9999,
+  "weather": 10,
+  "sponsor": false
+}
